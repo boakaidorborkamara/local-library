@@ -1,13 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sqlite3 = require('sqlite3').verbose();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+// initialize express application 
+let app = express();
+
+let db = new sqlite3.Database('./model/library.db', (err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Connected to the Local Library database.');
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
