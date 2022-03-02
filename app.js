@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 // initialize express application 
 let app = express();
 
+// connect Local Library sqlite database 
 let db = new sqlite3.Database('./model/library.db', (err) => {
   if (err) {
     return console.error(err.message);
@@ -18,6 +19,13 @@ let db = new sqlite3.Database('./model/library.db', (err) => {
   console.log('Connected to the Local Library database.');
 });
 
+// close database connection
+db.close((err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Close the database connection.');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
