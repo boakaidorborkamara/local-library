@@ -19,13 +19,22 @@ let db = new sqlite3.Database('./model/library.db', (err) => {
   console.log('Connected to the Local Library database.');
 });
 
+<<<<<<< HEAD
 // close database connection
+=======
+// close database 
+>>>>>>> 08ed028920eafe3e48a82c8e644458b405ca6cfb
 db.close((err) => {
   if (err) {
     return console.error(err.message);
   }
   console.log('Close the database connection.');
+<<<<<<< HEAD
 });
+=======
+}); 
+
+>>>>>>> 08ed028920eafe3e48a82c8e644458b405ca6cfb
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
