@@ -27,7 +27,7 @@ db.serialize(
   // create book table 
   db.run(
     ` CREATE TABLE IF NOT EXISTS book(
-      id INTERGER PRIMARY KEY ,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       title STRING ,
       summary STRING, 
       isbn STRING,
