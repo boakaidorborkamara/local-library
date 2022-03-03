@@ -19,22 +19,42 @@ let db = new sqlite3.Database('./model/library.db', (err) => {
   console.log('Connected to the Local Library database.');
 });
 
-<<<<<<< HEAD
-// close database connection
-=======
+
+// execute sql commands one after the other 
+db.serialize(
+ ()=>{
+
+  // create book table 
+  db.run(
+    ` CREATE TABLE IF NOT EXISTS book(
+      id INTERGER PRIMARY KEY ,
+      title STRING ,
+      summary STRING, 
+      isbn STRING,
+      url STRING,
+      author_id INTEGER,
+      genre_id INTEGER )`, (err)=>{
+      if(err){
+        console.log(err);
+        throw err;
+        return
+      }
+      
+      console.log("Book table created.");
+    }
+  )
+ }
+)
+
+
 // close database 
->>>>>>> 08ed028920eafe3e48a82c8e644458b405ca6cfb
 db.close((err) => {
   if (err) {
     return console.error(err.message);
   }
   console.log('Close the database connection.');
-<<<<<<< HEAD
-});
-=======
 }); 
 
->>>>>>> 08ed028920eafe3e48a82c8e644458b405ca6cfb
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
