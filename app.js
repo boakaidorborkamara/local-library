@@ -20,30 +20,100 @@ let db = new sqlite3.Database('./model/library.db', (err) => {
 });
 
 
-// execute sql commands one after the other 
-db.serialize(
- ()=>{
+// using serialize to enable sql command to be executed one after the other
+db.serialize(()=>{
 
-  // create book table 
-  db.run(
-    ` CREATE TABLE IF NOT EXISTS book(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      title STRING ,
-      summary STRING, 
-      isbn STRING,
-      url STRING,
-      author_id INTEGER,
-      genre_id INTEGER )`, (err)=>{
+    // create book table 
+    db.run(
+      ` CREATE TABLE IF NOT EXISTS book(
+        book_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        book_title STRING ,
+        book_summary STRING, 
+        isbn STRING,
+        book_url STRING,
+        author_id INTEGER,
+        genre_id INTEGER,
+        
+        FOREIGN KEY(author_id)
+          REFERENCES author(author_id)
+
+        FOREIGN KEY(genre_id)
+          REFERENCES genre(genre_id)
+       
+        )`, (err)=>{
+        if(err){
+          console.log(err);
+          throw err;
+          return
+        }
+        
+        console.log("Book table created.");
+      }
+    );
+
+    // create author table 
+    db.run(
+      `CREATE TABLE IF NOT EXISTS author(
+            author_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            first_name STRING,
+            date_of_birth TEXT,
+            date_of_death TEXT,
+            name STRING,
+            life_span STRING,
+            url STRING
+        )`,(err)=>{
+        if(err){
+          console.log(err);
+          throw err;
+          return;
+        }
+
+        console.log("Author table created");
+      }
+    );
+
+    // create genre table 
+    db.run(`
+      CREATE TABLE IF NOT EXISTS genre(
+        genre_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        genre_name STRING,
+        genre_url STRING
+      )
+    `, (err)=>{
       if(err){
         console.log(err);
         throw err;
         return
       }
-      
-      console.log("Book table created.");
-    }
-  )
- }
+
+      console.log("Genre table create");
+    });
+
+    // create book instance table 
+    db.run(`
+      CREATE TABLE IF NOT EXISTS book_instance(
+        instance_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        book_id INTEGER,
+        imprint STRING,
+        status STRING,
+        due_back STRING,
+        instance_url STRING,
+
+        FOREIGN KEY(book_id)
+         REFERENCES book(book_id)
+      )`,(err)=>{
+        if(err){
+          console.log(err);
+          throw err;
+          return;
+        }
+
+        console.log("Book Instance table created");
+      }
+    )
+
+    
+  }
 )
 
 
