@@ -56,9 +56,9 @@ db.serialize(()=>{
       `CREATE TABLE IF NOT EXISTS author(
             author_id INTEGER PRIMARY KEY AUTOINCREMENT,
             first_name STRING,
+            last_name STRING,
             date_of_birth TEXT,
             date_of_death TEXT,
-            name STRING,
             life_span STRING,
             url STRING
         )`,(err)=>{
@@ -116,6 +116,16 @@ db.serialize(()=>{
   }
 )
 
+// insert data into tables 
+db.run(`INSERT INTO author(first_name, last_name, date_of_birth, url) VALUES("Mary", "Kanneh", "Feb 1, 1694", "www.facebook.com")`,(err)=>{
+  if(err){
+    console.log(err);
+    return;
+  }
+
+  console.log(`New author added`);
+});
+
 
 // close database 
 db.close((err) => {
@@ -151,7 +161,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status || 3000);
   res.render('error');
 });
 
