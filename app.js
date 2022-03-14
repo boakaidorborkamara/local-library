@@ -116,15 +116,35 @@ db.serialize(()=>{
   }
 )
 
-// insert data into tables 
-db.run(`INSERT INTO author(first_name, last_name, date_of_birth, url) VALUES("Mary", "Kanneh", "Feb 1, 1694", "www.facebook.com")`,(err)=>{
-  if(err){
-    console.log(err);
-    return;
-  }
+// insert data into author tables 
+// db.run(`INSERT INTO author(first_name, last_name, date_of_birth, url) VALUES("Mary", "Kanneh", "Feb 1, 1694", "www.facebook.com")`,(err)=>{
+//   if(err){
+//     console.log(err);
+//     return;
+//   }
 
-  console.log(`New author added`);
-});
+//   console.log(`New author added`);
+// });
+
+// insert data into genre table
+// db.run(`INSERT INTO genre(genre_name, genre_url) VALUES("Fiction", "www.google")`,(err)=>{
+//   if(err){
+//     console.log(err);
+//     return; 
+//   }
+
+//   console.log("New genre added to genre table");
+// });
+
+// insert data into book table 
+// db.run(`INSERT INTO book(book_title, book_summary, book_url) VALUES("Murder In The Cassava Patch", "This book is about Love that later transfrom into hate because of jeelousy", "www.google.com")`, (err)=>{
+//   if(err){
+//     console.log(err);
+//     return;
+//   }
+
+//   console.log("New book has being added");
+// });
 
 
 // close database 
