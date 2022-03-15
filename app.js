@@ -146,6 +146,16 @@ db.serialize(()=>{
 //   console.log("New book has being added");
 // });
 
+// insert data into book_instance table 
+db.run(`INSERT INTO book_instance(book_id, imprint, instance_url) VALUES()`, (err)=>{
+  if(err){
+    console.log(err);
+    return;
+  }
+
+  console.log("New book has being added");
+});
+
 
 // close database 
 db.close((err) => {
