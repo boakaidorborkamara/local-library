@@ -137,7 +137,7 @@ db.serialize(()=>{
 // });
 
 // insert data into book table 
-// db.run(`INSERT INTO book(book_title, book_summary, book_url) VALUES("Murder In The Cassava Patch", "This book is about Love that later transfrom into hate because of jeelousy", "www.google.com")`, (err)=>{
+// db.run(`INSERT INTO book(book_title, book_summary, book_url, author_id, genre_id) VALUES("Murder In The Cassava Patch", "This book is about Love that later transfrom into hate because of jeelousy", "www.google.com", 1 , 1)`, (err)=>{
 //   if(err){
 //     console.log(err);
 //     return;
@@ -147,17 +147,17 @@ db.serialize(()=>{
 // });
 
 // insert data into book_instance table 
-db.run(`INSERT INTO book_instance(book_id, imprint, instance_url) VALUES()`, (err)=>{
-  if(err){
-    console.log(err);
-    return;
-  }
+// db.run(`INSERT INTO book_instance(book_id, imprint, status, due_back) VALUES(1, "Printing press", "Reserved", "March 28")`, (err)=>{
+//   if(err){
+//     console.log(err);
+//     return;
+//   }
 
-  console.log("New book has being added");
-});
+//   console.log("New book_instance has been added"); 
+// });
 
 
-// close database 
+// // close database 
 db.close((err) => {
   if (err) {
     return console.error(err.message);
