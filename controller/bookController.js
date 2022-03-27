@@ -1,5 +1,3 @@
-var Book = require('../models/book');
-
 // Display list of all books.
 exports.book_list = function(req, res) {
     res.send('NOT IMPLEMENTED: Book list');
