@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const Sequelize = require("sequelize");
+// const sqlite3 = require("sqlite3");
 
 
 //PORT
@@ -11,6 +13,8 @@ const PORT = process.env.PORT || 3000;
 // initialize express application 
 let app = express();
 
+//database connection
+const db = require('./dbConfig/dbConfig');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
