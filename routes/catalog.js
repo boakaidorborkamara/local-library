@@ -14,10 +14,10 @@ let book_instance_controller = require("../controller/bookInstanceController");
 // BOOK ROUTES 
 
 // GET catalog home page.
-// router.get('/', function(req, res) {
-//     res.send('NOT IMPLEMENTED: Book list');
-//     // res.render('index');
-// });
+router.get('/', function(req, res) {
+    res.send('NOT IMPLEMENTED: Book list');
+    // res.render('index');
+});
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 router.get('/book/create', book_controller.book_create_get);
