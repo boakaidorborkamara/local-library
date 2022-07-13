@@ -3,9 +3,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
-const catalogRouter = require('./routes/catalog');
 
 //PORT
 const PORT = process.env.PORT || 3000;
@@ -24,6 +21,13 @@ app.set('view engine', 'ejs');
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
+
+
+// ROUTES 
+const indexRouter = require('./routes/index');
+// const usersRouter = require('./routes/users');
+const catalogRouter = require('./routes/catalog');
+
 
 app.use('/', indexRouter);
 app.use('/catalog', catalogRouter);
