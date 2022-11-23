@@ -1,6 +1,6 @@
 // Display list of all author 
 exports.author_list = function(req,res){
-    res.send("author list not implemented");
+    res.render('authors', {title:"Local Library | Authors"});
 }
 
 // Display detail page for specific author 

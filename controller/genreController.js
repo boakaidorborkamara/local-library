@@ -1,6 +1,6 @@
 // Display list of all Genre.
 exports.genre_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Genre list');
+    res.render('genres', {title:"Local Library | Genres"});
 };
 
 // Display detail page for a specific Genre.

@@ -1,6 +1,6 @@
 // Display list of all BookInstances.
 exports.bookinstance_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: BookInstance list');
+    res.render('book-instance', {title:"Local Library | Book Instance"});
 };
 
 // Display detail page for a specific BookInstance.
