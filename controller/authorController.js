@@ -7,10 +7,12 @@ exports.author_list = function(req,res){
 exports.author_details = function(req,res){
     res.send("author detail page not implemented.")
 }
-
+ 
 // Display form to create new Author on GET.
 exports.author_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author create GET');
+    // res.send('NOT IMPLEMENTED: Author create GET');
+    res.render('add-author', {title:"Add Author"});
+
 };
 
 // Handle Author create on POST.

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- bootstrap link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+   <div class="container-fluid">
+      <div class="row ">
+        <!-- nav -->
+        <%- include("./partial/nav") -%>
+    
+        <main class="col-lg-10">
+          <div>
+            <h1>Add Author</h1>
+          </div>
+          
+
+          <form action="">
+            <!-- first name  -->
+            <div class="mb-3">
+              <label for="first-name" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="first-name" placeholder="First Name">
+            </div>
+            
+            <!-- last name  -->
+            <div class="mb-3">
+              <label for="last-name" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+            </div>
+
+            <!-- date of birth  -->
+            <div class="mb-3">
+              <label for="date-of-birth" class="form-label">Date of Birth</label>
+              <input type="date" class="form-control" id="date-of-birth">
+            </div>
+
+             <!-- date of death  -->
+             <div class="mb-3">
+              <label for="date-of-death" class="form-label">Date of Death</label>
+              <input type="date" class="form-control" id="date-of-death">
+            </div>
+
+            <button type="button" class="btn btn-primary">Submit</button>
+          </form>
+
+
+
+        </main>
+      </div>
+   </div>
+  </body>
+</html>

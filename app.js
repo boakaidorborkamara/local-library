@@ -27,8 +27,7 @@ app.set('view engine', 'ejs');
 
 //database connection
 const database = require('./dbConfig/dbConfig');
-//tables
-const author_table = require('./model/author');
+const author_table = require('./model/author');//tables
 
 
 // ROUTES 
