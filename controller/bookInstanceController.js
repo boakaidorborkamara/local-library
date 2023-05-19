@@ -10,7 +10,7 @@ exports.bookinstance_detail = function(req, res) {
 
 // Display BookInstance create form on GET.
 exports.bookinstance_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: BookInstance create GET');
+    res.render('add-book-instance', {title:"Create BookInstance"});
 };
 
 // Handle BookInstance create on POST.

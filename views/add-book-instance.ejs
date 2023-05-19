@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- bootstrap link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+   <div class="container-fluid">
+      <div class="row ">
+        <!-- nav -->
+        <%- include("./partial/nav") -%>
+    
+        <main class="col-lg-10">
+          <div>
+            <h1>Create BookInstance</h1>
+          </div>
+          
+
+          <form action="">
+            <!-- book-->
+            <div class="mb-3">
+              <label for="book" class="form-label">Book:</label>
+              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
+                <option selected disabled>Choose book</option>
+                <option value="1">Book One</option>
+                <option value="2">Book Two</option>
+                <option value="3">Book Three</option>
+              </select>
+            </div>
+
+            <!-- imprint  -->
+            <div class="mb-3">
+              <label for="imprint" class="form-label">Imprint:</label>
+              <input type="text" class="form-control" id="imprint" placeholder="Publisher & Date Information">
+            </div>
+
+             <!-- book available date -->
+             <div class="mb-3">
+              <label for="available-date" class="form-label">Date when book available:</label>
+              <input type="date" class="form-control" id="available-date">
+            </div>
+
+             <!-- status-->
+             <div class="mb-3">
+              <label for="book" class="form-label">Book:</label>
+              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
+                <option selected disabled>Choose book status</option>
+                <option value="1">Maintance</option>
+                <option value="2">Available</option>
+                <option value="3">Loaned</option>
+                <option value="3">Reserved</option>
+              </select>
+            </div>
+
+            
+            <button type="button" class="btn btn-primary">Submit</button>
+          </form>
+
+
+
+        </main>
+      </div>
+   </div>
+  </body>
+</html>
