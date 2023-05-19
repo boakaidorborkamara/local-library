@@ -10,7 +10,8 @@ exports.genre_detail = function(req, res) {
 
 // Display Genre create form on GET.
 exports.genre_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Genre create GET');
+    // res.send('NOT IMPLEMENTED: Genre create GET');
+    res.render('add-genre', {title:"Add Genre"});
 };
 
 // Handle Genre create on POST.

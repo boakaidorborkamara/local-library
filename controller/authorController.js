@@ -10,7 +10,6 @@ exports.author_details = function(req,res){
  
 // Display form to create new Author on GET.
 exports.author_create_get = function(req, res) {
-    // res.send('NOT IMPLEMENTED: Author create GET');
     res.render('add-author', {title:"Add Author"});
 
 };
