@@ -10,12 +10,17 @@ exports.author_details = function(req,res){
  
 // Display form to create new Author on GET.
 exports.author_create_get = function(req, res) {
+//     res.send(`<form method="POST" action="">
+//   <input type="text" name="username" placeholder="username">
+//   <input type="submit">
+// </form>`);
     res.render('add-author', {title:"Add Author"});
-
+ 
 };
 
 // Handle Author create on POST.
 exports.author_create_post = function(req, res) {
+    console.log("REQ BODY", req.body);
     res.send('NOT IMPLEMENTED: Author create POST');
 };
 

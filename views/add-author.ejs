@@ -19,32 +19,32 @@
           </div>
           
 
-          <form action="">
+          <form action="/catalog/author/create" method="post">
             <!-- first name  -->
             <div class="mb-3">
               <label for="first-name" class="form-label">First Name:</label>
-              <input type="text" class="form-control" id="first-name" placeholder="First Name">
+              <input type="text" value="test" name="first-name" class="form-control" id="first-name" placeholder="First Name">
             </div>
             
             <!-- last name  -->
             <div class="mb-3">
               <label for="last-name" class="form-label">Last Name:</label>
-              <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+              <input type="text" name="last-name" class="form-control" id="last-name" placeholder="Last Name">
             </div>
 
             <!-- date of birth  -->
             <div class="mb-3">
               <label for="date-of-birth" class="form-label">Date of Birth:</label>
-              <input type="date" class="form-control" id="date-of-birth">
+              <input type="date" name="date-of-birth" class="form-control" id="date-of-birth">
             </div>
 
              <!-- date of death  -->
              <div class="mb-3">
               <label for="date-of-death" class="form-label">Date of Death:</label>
-              <input type="date" class="form-control" id="date-of-death">
+              <input type="date" name="date-of-death" class="form-control" id="date-of-death">
             </div>
 
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 
 
