@@ -20,38 +20,6 @@ exports.author_create_get = function(req, res) {
  
 };
 
-// Handle Author create on POST.
-// exports.author_create_post = function(req, res) {
-
-//     let new_author = req.body;
-
-//     // validate new author 
-//     body("first-name")
-//         .trim()
-//         .isLength({ min: 1 })
-//         .escape()
-//         .withMessage("First name must be specified.")
-//         .isAlphanumeric()
-//         .withMessage("First name has non-alphanumeric characters.")
-
-    
-//     // Process request after validation and sanitization.
-//     const error = validationResult(req);
-//     if(error.isEmpty()){
-
-//         res.send({"new author":new_author}); 
-
-//     }
-//     else{
-
-//         console.log(error.array());
-
-//     }
-
-    
-
-// };
-
 exports.author_create_post = [
 
     // validate and sanitize 
