@@ -73,6 +73,7 @@ exports.author_create_post = [
             errors: errors.array(),
         });
         return;
+        
         } else {
             res.send({msg:"working"});
         }

@@ -10,25 +10,37 @@
     
    <div class="container-fluid">
       <div class="row ">
+
+        
         <!-- nav -->
         <%- include("./partial/nav") -%>
     
+
         <main class="col-lg-10">
 
           <!-- page title dynamicly added  -->
           <div>
-            <% if (title) { %>
+            <% if (typeof title !== "undefined") { %>
               <h1><%= title %></h1>
             <% } %>
           </div>
           
 
-          <!-- error message alerts  -->
-          <div class="alert alert-danger d-flex align-items-center" role="alert">
-            <div>
-              An example danger alert with an icon
-            </div>
-          </div>
+          <!-- display error message alerts if there's an error  -->
+          <% if (typeof errors !== "undefined") { %>
+
+            <!-- loop through the array of errors and display message for each to the DOM  -->
+            <% errors.forEach((error)=>{ %>
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                  <%= error.msg %>
+                </div>
+              </div>
+            <% }); %>
+            
+            
+          <% } %>
+          
 
 
           <form action="/catalog/author/create" method="post">
