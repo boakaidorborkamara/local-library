@@ -68,7 +68,7 @@ exports.author_create_post = [
         console.log(user_error);
 
         res.render("add-author", {
-            title: "Create Author",
+            title: "Add Author",
             author: author,
             errors: errors.array(),
         });

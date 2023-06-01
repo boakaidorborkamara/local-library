@@ -14,6 +14,7 @@
         <%- include("./partial/nav") -%>
     
         <main class="col-lg-10">
+
           <!-- page title dynamicly added  -->
           <div>
             <% if (title) { %>
@@ -22,15 +23,16 @@
           </div>
           
 
+          <!-- error message alerts  -->
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <div>
+              An example danger alert with an icon
+            </div>
+          </div>
+
+
           <form action="/catalog/author/create" method="post">
 
-            <% if (typeof author!='undefined') { %>
-              <h2>test
-                
-              </h2>
-            <% } %>
-              
-          
             <!-- first name  -->
             <div class="mb-3">
               <label for="first-name" class="form-label">First Name:</label>
