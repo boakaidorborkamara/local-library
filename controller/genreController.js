@@ -1,4 +1,6 @@
 const {body, validationResult} = require('express-validator');
+const asyncHandler = require('express-async-handler');
+
 
 // Display list of all Genre.
 exports.genre_list = function(req, res) {
@@ -17,9 +19,28 @@ exports.genre_create_get = function(req, res) {
 };
 
 // Handle Genre create on POST.
-exports.genre_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Genre create POST');
-};
+// exports.genre_create_post = function(req, res) {
+//     console.log(req.body);
+//     res.send('NOT IMPLEMENTED: Genre create POST');
+// };
+exports.genre_create_post = [
+    // validate and sanitize values from input fields 
+    body('genre')
+    .trim()
+    .isLength({ min: 2 })
+    .escape()
+    .withMessage("First name must be more than one character.")
+    .isAlphanumeric()
+    .withMessage("First name has non-alphanumeric characters."),
+
+    asyncHandler((req,res)=>{
+
+        const errors = validationResult(req);
+        console.log(errors);
+
+    })
+
+]
 
 // Display Genre delete form on GET.
 exports.genre_delete_get = function(req, res) {
