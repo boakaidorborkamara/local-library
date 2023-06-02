@@ -14,8 +14,12 @@
         <%- include("./partial/nav") -%>
     
         <main class="col-lg-10">
+
+          <!-- page title  -->
           <div>
-            <h1>Add Genre</h1>
+            <% if (typeof title !== "undefine") { %>
+              <h1><%= title %></h1>
+            <% } %>
           </div>
           
 
