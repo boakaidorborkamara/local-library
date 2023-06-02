@@ -90,7 +90,7 @@ exports.author_create_post = [
             // Create a new user
             const new_author = await Author.create(author);
             console.log("new author", new_author);
-            res.send({msg:"working"});
+            res.render("add-author", {title: "Add Author"});
         }
     }),
 
