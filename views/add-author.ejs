@@ -11,7 +11,7 @@
    <div class="container-fluid">
       <div class="row ">
 
-        
+
         <!-- nav -->
         <%- include("./partial/nav") -%>
     
@@ -37,6 +37,7 @@
                 </div>
               </div>
             <% }); %>
+            <!-- loop ends  -->
             
             
           <% } %>
@@ -48,15 +49,15 @@
             <!-- first name  -->
             <div class="mb-3">
               <label for="first-name" class="form-label">First Name:</label>
-              <input type="text" name="first-name" class="form-control" required="true" id="first-name" placeholder="First Name" value=<%= typeof author!='undefined' ? author.first_name : '' %>>
+              <input type="text" name="first-name" class="form-control" required="true" id="first-name" placeholder="First Name" value= <%= typeof author!='undefined' ? author.firstName : '' %>>
             </div>
             
             <!-- last name  -->
             <div class="mb-3">
               <label for="last-name" class="form-label">Last Name:</label>
-              <input type="text" name="last-name" class="form-control" id="last-name" placeholder="Last Name">
+              <input type="text" name="family-name" class="form-control" required="true" id="last-name" placeholder="Last Name" value= <%= typeof author!='undefined' ? author.familyName : '' %>>
             </div>
-
+ 
             <!-- date of birth  -->
             <div class="mb-3">
               <label for="date-of-birth" class="form-label">Date of Birth:</label>

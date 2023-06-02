@@ -1,6 +1,17 @@
+// author model
+const { Sequelize, DataTypes } = require('sequelize');
+const Author = require('../model/author');
+
 // include validater library 
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require('express-async-handler');
+
+
+
+
+//=======================================================================
+
+
 
 
 // Display list of all author 
@@ -25,16 +36,16 @@ exports.author_create_post = [
     // validate and sanitize 
     body("first-name")
         .trim()
-        .isLength({ min: 1 })
+        .isLength({ min: 2 })
         .escape()
-        .withMessage("First name must be specified.")
+        .withMessage("First name must be more than one character.")
         .isAlphanumeric()
         .withMessage("First name has non-alphanumeric characters."),
-    body("last-name")
+    body("family-name")
         .trim()
-        .isLength({ min: 1 }) 
+        .isLength({ min: 2 }) 
         .escape()
-        .withMessage("Last name must be specified")
+        .withMessage("Last name must be more than one character.")
         .isAlphanumeric()
         .withMessage("Last name has a non-alphnumeric characters"),
     body("date_of_birth", "Invalid date of birth")
@@ -51,15 +62,15 @@ exports.author_create_post = [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
 
-          // Create Author object with escaped and trimmed data
+        // Create Author object with escaped and trimmed data
         const author = {
-            first_name: req.body["first-name"],
-            family_name: req.body["last-name"],
+            firstName: req.body["first-name"],
+            FamilyName: req.body["family-name"],
             date_of_birth: req.body["date-of-birth"],
             date_of_death: req.body["date-of-death"],
         };
 
-        console.log("req body", req.body);
+        console.log("author", author);
         
 
         if (!errors.isEmpty()) {
@@ -73,8 +84,12 @@ exports.author_create_post = [
             errors: errors.array(),
         });
         return;
-        
+
         } else {
+
+            // Create a new user
+            const new_author = await Author.create(author);
+            console.log("new author", new_author);
             res.send({msg:"working"});
         }
     }),
