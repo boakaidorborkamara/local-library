@@ -36,7 +36,25 @@ exports.genre_create_post = [
     asyncHandler((req,res)=>{
 
         const errors = validationResult(req);
-        console.log(errors);
+
+        const genre = {
+            genre:req.body["genre"]
+        }
+
+        // check if there's an error from validation 
+        if(!errors.isEmpty()){
+
+            console.log(errors);
+
+            // render page with error message and user input 
+            res.render("add-genre",{
+                title: "Add Genre",
+                genre:genre,
+                errors:errors.array()
+            })
+            return;
+        }
+       
 
     })
 
