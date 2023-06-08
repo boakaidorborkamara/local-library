@@ -30,7 +30,8 @@ app.set('view engine', 'ejs');
 
 //database connection
 const database = require('./dbConfig/dbConfig');
-const author_table = require('./model/author');//tables
+const author_table = require('./model/author');//author table
+const genre_table = require('./model/genre');//genre table
 
 
 // ROUTES 
