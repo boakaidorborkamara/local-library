@@ -37,7 +37,9 @@
 
                   <!-- dynamicly create dropdown options from existing author  -->
                   <% author_names.forEach(function(author){ %>
-                    <option><%= author.full_name %></option>
+                    <option id=<%= author.id %>>
+                      <%= author.full_name %>
+                    </option>
                   <% }); %>
                   
                 <% } %>
