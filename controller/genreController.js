@@ -1,3 +1,9 @@
+// genre model
+const { Sequelize, DataTypes } = require('sequelize');
+const Genre = require('../model/author');
+
+
+
 const {body, validationResult} = require('express-validator');
 const asyncHandler = require('express-async-handler');
 
