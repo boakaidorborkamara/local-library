@@ -31,9 +31,16 @@
               <label for="author" class="form-label">Author:</label>
               <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
                 <option selected disabled>Choose author</option>
-                <option value="1">Author One</option>
-                <option value="2">Author Two</option>
-                <option value="3">Author Three</option>
+                
+                <!-- check if there is author -->
+                <% if (typeof author_names != "undefined") { %>
+
+                  <!-- dynamicly create dropdown options from existing author  -->
+                  <% author_names.forEach(function(author){ %>
+                    <option><%= author.full_name %></option>
+                  <% }); %>
+                  
+                <% } %>
               </select>
             </div>
             
