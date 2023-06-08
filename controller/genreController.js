@@ -1,6 +1,6 @@
 // genre model
 const { Sequelize, DataTypes } = require('sequelize');
-const Genre = require('../model/author');
+const Genre = require('../model/genre');
 
 
 
@@ -39,13 +39,15 @@ exports.genre_create_post = [
     .isAlphanumeric()
     .withMessage("First name has non-alphanumeric characters."),
 
-    asyncHandler((req,res)=>{
+    asyncHandler(async(req,res)=>{
 
         const errors = validationResult(req);
 
         const genre = {
-            genre:req.body["genre"]
+            name:req.body["genre"]
         }
+
+        
 
         // check if there's an error from validation 
         if(!errors.isEmpty()){
@@ -59,6 +61,13 @@ exports.genre_create_post = [
                 errors:errors.array()
             })
             return;
+        }
+        else{
+            console.log("Genre", genre);
+            // Add new genre
+            const new_genre = await Genre.create(genre);
+            console.log("new author", new_genre);
+            res.render("add-genre", {title: "Add Genre"});
         }
        
 
