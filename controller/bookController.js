@@ -17,32 +17,47 @@ exports.book_detail = function(req, res) {
 exports.book_create_get = async function(req, res) {
 
     
-    let author_names = [];
+    
 
     // Get  all authors from db
+    let author_names = [];
     const authors = await Author.findAll();
     authors.forEach((author)=>{
-        console.log("TEST", author.firstName);
+
         author_names.push(
             {
                 id : `${author.id}`,
                 full_name : `${author.firstName} ${author.FamilyName}`
             }
-        )
+        );
         
     });
-    console.log("authors", author_names);
+
 
     // Get  all genre from db
-    const genres = await Genre.findAll();
+    let genre_list = [];
+    const genres = await Genre.findAll(); //query genres from db
+    genres.forEach((genre)=>{
+
+        genre_list.push(
+            {
+                id : `${genre.id}`,
+                name : `${genre.name}`
+            }
+        );
+        
+    });
+
+    console.log("genre list", genre_list);
    
     //Render page with dynamic data
-    res.render('add-book', {title:"Add Book", author_names, genres});
+    res.render('add-book', {title:"Add Book", author_names, genre_list});
 
 };
 
 // Handle book create on POST.
 exports.book_create_post = function(req, res) {
+    console.log("BOOK", req.body);
     res.send('NOT IMPLEMENTED: Book create POST');
 };
 

@@ -19,17 +19,17 @@
           </div>
           
 
-          <form action="">
+          <form action="/catalog/book/create" method="post">
             <!-- title  -->
             <div class="mb-3">
               <label for="title" class="form-label">Title:</label>
-              <input type="text" class="form-control" id="title" placeholder="Name of book">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Name of book">
             </div>
 
             <!-- author  -->
             <div class="mb-3">
               <label for="author" class="form-label">Author:</label>
-              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
+              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example" name="author">
                 <option selected disabled>Choose author</option>
                 
                 <!-- check if there is author -->
@@ -37,7 +37,7 @@
 
                   <!-- dynamicly create dropdown options from existing author  -->
                   <% author_names.forEach(function(author){ %>
-                    <option id=<%= author.id %>>
+                    <option id=<%= author.id %> >
                       <%= author.full_name %>
                     </option>
                   <% }); %>
@@ -52,13 +52,13 @@
               <div>
                 <label for="summary" class="form-label">Summary:</label>
               </div>
-              <textarea class="w-100" name="" id="sumary" cols="30" rows="10" placeholder="summary"></textarea>
+              <textarea class="w-100" name="summary" id="summary" cols="30" rows="10" placeholder="summary"></textarea>
             </div>
 
             <!-- isbn  -->
             <div class="mb-3">
-              <label for="isbn" class="form-label">ISBN:</label>
-              <input type="text" class="form-control" id="isbn" placeholder="ISBN">
+              <label for="isbn" class="form-label">International Standard Book Number (ISBN):</label>
+              <input type="number" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
             </div>
 
             <!-- genre  -->
@@ -68,12 +68,23 @@
                 <input type="checkbox" id="fantasy" name="vehicle1" value="Bike">
                 <label for="fantasy" class="mr-3">Fantasy</label>
 
-                <input type="checkbox" id="french-poetry" name="vehicle1" value="Bike">
-                <label for="french-poetry">French Poetry</label>
+                <!-- check if there is genre -->
+                <% if (typeof genre_list != "undefined") { %>
+
+                  <!-- dynamicly create dropdown options from existing genre  -->
+                  <% genre_list.forEach(function(genre){ %>
+
+                    <input type="checkbox" id=<%= genre.id %> name="genre" value=<%= genre.name %>>
+                    <label for=<%= genre.id %> class="mr-3"> <%= genre.name %> </label>
+
+                  <% }); %>
+                  
+                <% } %>
+
               </div>
             </div>
 
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 
 
