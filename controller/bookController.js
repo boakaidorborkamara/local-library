@@ -1,6 +1,10 @@
+// database model 
 const { Sequelize, DataTypes } = require('sequelize');
 const Author = require('../model/author');
 const Genre = require('../model/genre');
+
+// express validator
+const {body, validationResult} = require('express-validator');
 
 
 // Display list of all books.
@@ -56,10 +60,59 @@ exports.book_create_get = async function(req, res) {
 };
 
 // Handle book create on POST.
-exports.book_create_post = function(req, res) {
-    console.log("BOOK", req.body);
-    res.send('NOT IMPLEMENTED: Book create POST');
-};
+exports.book_create_post = [
+
+    body("title")
+        .trim()
+        .isLength({min:2})
+        .escape()
+        .withMessage("Title must be more than one character.")
+        .isAlphanumeric()
+        .withMessage("Title name has non-alphanumeric characters."),
+    body("summary")
+        .trim()
+        .isLength({min:2})
+        .escape()
+        .withMessage("Summary must be more than one character.")
+        .isAlphanumeric()
+        .withMessage("Title name has non-alphanumeric characters."),
+    body("isbn")
+        .trim()
+        .isLength({min:1})
+        .escape()
+        .withMessage("ISBN is required.")
+        .isNumeric()
+        .withMessage("ISBN should be numbers only"),
+
+    (async (req, res)=> {
+
+        const errors = validationResult(req);
+        
+        // new book details 
+        let book = {
+            title: req.body.title,
+            summary: req.body.summary,
+            isbn: req.body.isbn
+        }
+
+        if(!errors.isEmpty()){
+
+            // render the same same page with errors and page title 
+            res.render ("add-book",{
+
+                title: "New Book",
+                book:book,
+                errors:errors
+
+            })
+            return;
+        }
+        else{
+            res.send('NOT IMPLEMENTED: Book create POST');
+        }
+        
+    })
+]
 
 // Display book delete form on GET.
 exports.book_delete_get = function(req, res) {
