@@ -1,7 +1,9 @@
 // database model 
 const { Sequelize, DataTypes } = require('sequelize');
+const asyncHandler = require('express-async-handler');
 const Author = require('../model/author');
 const Genre = require('../model/genre');
+const Book = require('../model/book');
 
 // express validator
 const {body, validationResult} = require('express-validator');
@@ -84,9 +86,10 @@ exports.book_create_post = [
         .isNumeric()
         .withMessage("ISBN should be numbers only"),
 
-    (async (req, res)=> {
+    asyncHandler(async (req, res)=> {
 
         const errors = validationResult(req);
+        console.log(errors);
         
         // new book details 
         let book = {
@@ -94,6 +97,7 @@ exports.book_create_post = [
             summary: req.body.summary,
             isbn: req.body.isbn
         }
+        console.log(book);
 
         if(!errors.isEmpty()){
 
@@ -108,7 +112,12 @@ exports.book_create_post = [
             return;
         }
         else{
-            res.send('NOT IMPLEMENTED: Book create POST');
+
+            // Add a new book
+            const new_book = await Book.create(book);
+            console.log("new book", new_book);
+            res.render("add-book", {title: "Add Book"});
+
         }
         
     })

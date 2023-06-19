@@ -22,6 +22,9 @@ const Book = sequelize.define("Book", {
 
 //create author table from model
 (async() => {
-    await book.sync({ force: true });
+    await Book.sync({ force: true });
     console.log("The table for the Book model was just (re)created!");
 })();
+
+
+module.exports = Book;

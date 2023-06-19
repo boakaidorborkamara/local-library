@@ -32,6 +32,8 @@ app.set('view engine', 'ejs');
 const database = require('./dbConfig/dbConfig');
 const author_table = require('./model/author');//author table
 const genre_table = require('./model/genre');//genre table
+const book_table = require('./model/book');//book table
+
 
 
 // ROUTES 
