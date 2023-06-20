@@ -96,7 +96,8 @@ exports.book_create_post = [
         let book = {
             title: req.body.title,
             summary: req.body.summary,
-            isbn: req.body.isbn
+            isbn: req.body.isbn,
+            genre:req.body.genre
         }
         console.log(book);
 
