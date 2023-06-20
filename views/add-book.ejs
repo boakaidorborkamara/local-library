@@ -14,8 +14,11 @@
         <%- include("./partial/nav") -%>
     
         <main class="col-lg-10">
+          <!-- page title dynamicly added  -->
           <div>
-            <h1>Add Book</h1>
+            <% if (typeof title !== "undefined") { %>
+              <h1><%= title %></h1>
+            <% } %>
           </div>
 
 
