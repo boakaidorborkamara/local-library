@@ -103,11 +103,45 @@ exports.book_create_post = [
 
         if(!errors.isEmpty()){
 
+
+
+            // Get  all authors from db to be added to dropdown in book form
+            let author_names = [];
+            const authors = await Author.findAll();
+            authors.forEach((author)=>{
+
+                author_names.push(
+                    {
+                        id : `${author.id}`,
+                        full_name : `${author.firstName} ${author.FamilyName}`
+                    }
+                );
+                
+            });
+
+
+            // Get  all genre from db to be added to dropdown in book form
+            let genre_list = [];
+            const genres = await Genre.findAll(); //query genres from db
+            genres.forEach((genre)=>{
+
+                genre_list.push(
+                    {
+                        id : `${genre.id}`,
+                        name : `${genre.name}`
+                    }
+                );
+                
+            });
+
+
             // render the same same page with errors and page title 
             res.render ("add-book",{
 
                 title: "New Book",
                 book:book,
+                author_names,
+                genre_list,
                 errors:errors
 
             })
