@@ -88,6 +88,7 @@ exports.book_create_post = [
 
     asyncHandler(async (req, res)=> {
 
+        console.log(req.body);
         const errors = validationResult(req);
         console.log(errors);
         
