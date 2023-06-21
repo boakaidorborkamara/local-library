@@ -89,7 +89,8 @@ exports.book_create_post = [
     asyncHandler(async (req, res)=> {
 
         console.log(req.body);
-        const errors = validationResult(req);
+        const results = validationResult(req);
+        const errors = results.array();
         console.log(errors);
         
         // new book details 
@@ -101,7 +102,7 @@ exports.book_create_post = [
         }
         console.log(book);
 
-        if(!errors.isEmpty()){
+        if(!results.isEmpty()){
 
 
 
