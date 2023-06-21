@@ -43,7 +43,7 @@
             <!-- title  -->
             <div class="mb-3">
               <label for="title" class="form-label">Title:</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="Name of book">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Name of book" value= <%= typeof book!='undefined' ? book.title : '' %>>
             </div>
 
             <!-- author  -->
@@ -57,7 +57,7 @@
 
                   <!-- dynamicly create dropdown options from existing author  -->
                   <% author_names.forEach(function(author){ %>
-                    <option id=<%= author.id %> >
+                    <option id=<%= author.id %>>
                       <%= author.full_name %>
                     </option>
                   <% }); %>
@@ -72,13 +72,15 @@
               <div>
                 <label for="summary" class="form-label">Summary:</label>
               </div>
-              <textarea class="w-100" name="summary" id="summary" cols="30" rows="10" placeholder="summary"></textarea>
+              <textarea class="w-100" name="summary" id="summary" cols="30" rows="10" placeholder="summary" >
+                <%= typeof book!='undefined' ? book.summary : '' %>
+              </textarea>
             </div>
 
             <!-- isbn  -->
             <div class="mb-3">
               <label for="isbn" class="form-label">International Standard Book Number (ISBN):</label>
-              <input type="number" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+              <input type="number" class="form-control" id="isbn" name="isbn" placeholder="ISBN" value= <%= typeof book!='undefined' ? book.isbn : '' %>>
             </div>
 
             <!-- genre  -->
