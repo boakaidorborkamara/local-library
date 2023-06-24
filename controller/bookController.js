@@ -98,9 +98,9 @@ exports.book_create_post = [
             title: req.body.title,
             summary: req.body.summary,
             isbn: req.body.isbn,
-            genre:req.body.genre
+            genre:req.body.genre.toString()
         }
-        console.log(book);
+        console.log("Book", book);
 
         if(!results.isEmpty()){
 

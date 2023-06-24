@@ -16,7 +16,7 @@ const Book = sequelize.define("Book", {
         require: true
     },
     genre:{
-        type: DataTypes.ARRAY(DataTypes.TEXT)
+        type: DataTypes.STRING
     }
 }, {
     tableName: 'book'
