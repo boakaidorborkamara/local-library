@@ -69,7 +69,7 @@ exports.book_create_post = [
         .isLength({min:2})
         .escape()
         .withMessage("Title must be more than one character.")
-        .isAlphanumeric()
+        .isAlphanumeric('es-ES', {ignore: ' '})
         .withMessage("Title name has non-alphanumeric characters."),
     body("summary")
         .trim()
@@ -85,6 +85,11 @@ exports.book_create_post = [
         .withMessage("ISBN is required.")
         .isNumeric()
         .withMessage("ISBN should be numbers only"),
+    body("genre")
+        .trim()
+        .isLength({min:1})
+        .escape()
+        .withMessage("Choose genre, it required"),
 
     asyncHandler(async (req, res)=> {
 
