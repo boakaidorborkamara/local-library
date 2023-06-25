@@ -23,7 +23,7 @@
             <!-- book-->
             <div class="mb-3">
               <label for="book" class="form-label">Book:</label>
-              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
+              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example" id="book" name="book-title">
                 <option selected disabled>Choose book</option>
                
                 <!-- check if there is a book -->
@@ -50,18 +50,18 @@
              <!-- book available date -->
              <div class="mb-3">
               <label for="available-date" class="form-label">Date when book available:</label>
-              <input type="date" class="form-control" id="available-date">
+              <input type="date" class="form-control" name="available-date" id="available-date">
             </div>
 
-             <!-- status-->
+             <!-- book status-->
              <div class="mb-3">
-              <label for="book" class="form-label">Book:</label>
-              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
+              <label for="book-status" class="form-label">Book Status:</label>
+              <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example" id="book-status" name="book-status" >
                 <option selected disabled>Choose book status</option>
-                <option value="1">Maintance</option>
-                <option value="2">Available</option>
-                <option value="3">Loaned</option>
-                <option value="3">Reserved</option>
+                <option value="Maintance">Maintance</option>
+                <option value="Available">Available</option>
+                <option value="Loaned">Loaned</option>
+                <option value="Reserved">Reserved</option>
               </select>
             </div>
 
