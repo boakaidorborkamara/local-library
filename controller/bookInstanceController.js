@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const asyncHandler = require('express-async-handler');
 const {body, validationResult} = require('express-validator'); //express validator 
 const Book = require('../model/book');
+const BookInstance = require('../model/book_instance');
 
 // Display list of all BookInstances.
 exports.bookinstance_list = function(req, res) {
@@ -56,9 +57,7 @@ exports.bookinstance_create_post = [
         .trim()
         .isLength({min:1})
         .escape()
-        .withMessage("ISBN is required.")
-        .isNumeric()
-        .withMessage("ISBN should be numbers only"),
+        .withMessage("Date is required."),
     body("book-status")
         .trim()
         .isLength({min:1})
@@ -82,6 +81,18 @@ exports.bookinstance_create_post = [
         const results = validationResult(req);
         const errors = results.array();
         console.log(errors);
+
+        if(!results.isEmpty){
+            console.log("Error exist")
+            res.render("add-book-instance");
+            return;
+        }
+        else{
+            // Add a new book
+            const new_book_instance = await BookInstance.create(book_instance);
+            console.log("new book", new_book_instance);
+            res.render("add-book-instance", {title: "Add Book"});
+        }
 
     }
         

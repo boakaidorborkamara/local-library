@@ -28,3 +28,6 @@ const BookInstance = sequelize.define("BookInstance", {
     await BookInstance.sync({ force: true });
     console.log("The table for the Book Instance model was just (re)created!");
 })();
+
+
+module.exports = BookInstance;
