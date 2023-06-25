@@ -2,26 +2,29 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../dbConfig/dbConfig');
 
 
-const Book = sequelize.define("Book", {
+const BookInstance = sequelize.define("BookInstance", {
     title: {
         type: DataTypes.STRING,
         require: true
     },
-    summary: {
+    imprint: {
         type: DataTypes.STRING,
+    },
+    available_date: {
+        type: DataTypes.DATE,
         require: true
     },
-    isbn: {
+    status: {
         type: DataTypes.STRING,
         require: true
     }
 }, {
-    tableName: 'book'
+    tableName: 'book_instance'
 });
 
 
 //create author table from model
 (async() => {
-    await book.sync({ force: true });
-    console.log("The table for the Book model was just (re)created!");
+    await book_instance.sync({ force: true });
+    console.log("The table for the Book Instance model was just (re)created!");
 })();
