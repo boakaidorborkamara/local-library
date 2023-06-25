@@ -70,15 +70,15 @@ exports.bookinstance_create_post = [
     async (req, res)=>{
 
         // new book details 
-        // let book_instance = {
-        //     title: req.body.title,
-        //     summary: req.body.summary,
-        //     isbn: req.body.isbn,
-        //     genre:req.body.genre.toString()
-        // }
+        let book_instance = {
+            title: req.body["book-title"],
+            imprint: req.body["imprint"],
+            available_date: req.body['available-date'],
+            status:req.body['book-status']
+        }
 
-        // console.log("Book", book);
-        console.log(req.body);
+        console.log("Book Instance", book_instance);
+        // console.log("BOOK INSTANCE", req.body);
         const results = validationResult(req);
         const errors = results.array();
         console.log(errors);
