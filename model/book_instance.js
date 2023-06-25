@@ -25,6 +25,6 @@ const BookInstance = sequelize.define("BookInstance", {
 
 //create author table from model
 (async() => {
-    await book_instance.sync({ force: true });
+    await BookInstance.sync({ force: true });
     console.log("The table for the Book Instance model was just (re)created!");
 })();
