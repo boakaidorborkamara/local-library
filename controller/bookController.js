@@ -69,14 +69,14 @@ exports.book_create_post = [
         .isLength({min:2})
         .escape()
         .withMessage("Title must be more than one character.")
-        .isAlphanumeric('es-ES', {ignore: ' '})
+        .isAlpha('es-ES', {ignore: ' '})
         .withMessage("Title name has non-alphanumeric characters."),
     body("summary")
         .trim()
         .isLength({min:2})
         .escape()
         .withMessage("Summary must be more than one character.")
-        .isAlphanumeric()
+        .isAlpha('es-ES', {ignore: ' '})
         .withMessage("Title name has non-alphanumeric characters."),
     body("isbn")
         .trim()

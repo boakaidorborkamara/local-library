@@ -25,9 +25,19 @@
               <label for="book" class="form-label">Book:</label>
               <select class="form-select form-select-lg mb-3 w-100 p-2" aria-label=".form-select-lg example">
                 <option selected disabled>Choose book</option>
-                <option value="1">Book One</option>
-                <option value="2">Book Two</option>
-                <option value="3">Book Three</option>
+               
+                <!-- check if there is a book -->
+                <% if (typeof book_names != "undefined") { %>
+
+                  <!-- dynamicly create dropdown options from existing book  -->
+                  <% book_names.forEach(function(book){ %>
+                    <option id=<%= book.id %>>
+                      <%= book.title %>
+                    </option>
+                  <% }); %>
+                  
+                <% } %>
+
               </select>
             </div>
 
@@ -36,7 +46,7 @@
               <label for="imprint" class="form-label">Imprint:</label>
               <input type="text" class="form-control" id="imprint" placeholder="Publisher & Date Information">
             </div>
-
+ 
              <!-- book available date -->
              <div class="mb-3">
               <label for="available-date" class="form-label">Date when book available:</label>
