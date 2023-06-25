@@ -36,6 +36,9 @@ exports.bookinstance_create_get = async function(req, res) {
 // Handle BookInstance create on POST.
 exports.bookinstance_create_post = async function(req, res) {
 
+    let book_instance = req.body;
+    console.log(book_instance);
+    
     res.send('NOT IMPLEMENTED: BookInstance create POST');
 };
 
