@@ -1,7 +1,13 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, UUID } = require('sequelize');
 const sequelize = require('../dbConfig/dbConfig');
 
 const Author = sequelize.define("Author", {
+    id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        primaryKey: true
+    },
     firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -23,7 +29,7 @@ const Author = sequelize.define("Author", {
 
 //create author table from model
 (async() => {
-    await Author.sync({ force: false });
+    await Author.sync({ force: true });
     console.log("The table for the Author model was just (re)created!");
 })();
 
