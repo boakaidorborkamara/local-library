@@ -85,7 +85,11 @@ exports.bookinstance_create_post = [
         if(!results.isEmpty()){
             console.log("Error exist")
             console.log(errors);
-            // res.render("add-book-instance");
+            res.render("add-book-instance" , {
+                title: "Create Book Instance",
+                book_instance:book_instance,
+                errors:errors
+            });
             return;
         }
         else{
