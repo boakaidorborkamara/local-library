@@ -11,7 +11,9 @@ const {body, validationResult} = require('express-validator');
 
 // Display list of all books.
 exports.book_list = async function(req, res) {
-    res.render('books', {title:"Local Library | Books"});
+
+    const books = await Book.findAll();
+    res.render('books', {title:"Local Library | Books", books});
 };
 
 // Display detail page for a specific book.

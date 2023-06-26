@@ -17,6 +17,27 @@
           <div>
             <h1>Book List</h1>
           </div>
+
+          
+          <ul>
+
+          <!-- display existing books  -->
+          <% if (typeof books !== "undefined") { %>
+
+            <!-- loop through list of book and display each to DOM  -->
+            <ul>
+              <% books.forEach((book)=>{ %>
+                <li>
+                  <a href="<%= book.id %>"><%= book.title %></a>
+                </li>
+              <% }); %>
+            
+            </ul>
+            <!-- loop ends  -->
+            
+          <% } %>
+            
+          </ul>
         </main>
       </div>
    </div>
