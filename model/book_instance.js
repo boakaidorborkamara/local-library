@@ -3,6 +3,12 @@ const sequelize = require('../dbConfig/dbConfig');
 
 
 const BookInstance = sequelize.define("BookInstance", {
+    id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        primaryKey: true
+    },
     title: {
         type: DataTypes.STRING,
         require: true
@@ -25,7 +31,7 @@ const BookInstance = sequelize.define("BookInstance", {
 
 //create author table from model
 (async() => {
-    await BookInstance.sync({ force: true });
+    await BookInstance.sync({ force: false });
     console.log("The table for the Book Instance model was just (re)created!");
 })();
 

@@ -3,6 +3,12 @@ const sequelize = require('../dbConfig/dbConfig');
 
 
 const Book = sequelize.define("Book", {
+    id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        primaryKey: true
+    }, 
     title: {
         type: DataTypes.STRING,
         require: true
