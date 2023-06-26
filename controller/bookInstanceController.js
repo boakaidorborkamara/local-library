@@ -80,11 +80,12 @@ exports.bookinstance_create_post = [
         // console.log("BOOK INSTANCE", req.body);
         const results = validationResult(req);
         const errors = results.array();
-        console.log(errors);
+        
 
-        if(!results.isEmpty){
+        if(!results.isEmpty()){
             console.log("Error exist")
-            res.render("add-book-instance");
+            console.log(errors);
+            // res.render("add-book-instance");
             return;
         }
         else{
