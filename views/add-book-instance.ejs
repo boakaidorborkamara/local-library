@@ -23,6 +23,24 @@
           </div>
           
 
+          <!-- display error message alerts if there's an error  -->
+          <% if (typeof errors !== "undefined") { %>
+
+            <!-- loop through the array of errors and display message for each to the DOM  -->
+            <% errors.forEach((error)=>{ %>
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                  <%= error.msg %>
+                </div>
+              </div>
+            <% }); %>
+            <!-- loop ends  -->
+            
+            
+          <% } %>
+
+          
+
           <form action="/catalog/bookinstance/create" method="post">
             <!-- book-->
             <div class="mb-3">
