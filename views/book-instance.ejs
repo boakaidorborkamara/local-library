@@ -23,6 +23,23 @@
             <%} 
           %>
 
+          <!-- Display book instance in an unorder list  -->
+          <%if(typeof book_instances !== "undefined"){%>
+                
+              <!-- loop through list of book instances and display each to DOM  -->
+              <ul>
+                <% book_instances.forEach((book_instance)=>{ %>
+                  <li>
+                    <a href="<%= book_instance.id %>"><%= book_instance.title %></a>
+                  </li>
+                <% }); %>
+              
+              </ul>
+              <!-- loop ends  -->
+
+            <%} 
+          %>
+
         </main>
       </div>
    </div>
