@@ -14,9 +14,13 @@
         <%- include("./partial/nav") -%>
     
         <main class="col-lg-10">
-          <div>
-            <h1>Book List</h1>
-          </div>
+           <!-- Dynamicly add page title  -->
+          <%if(typeof title !== "undefined"){%>
+                <div>
+                  <h1><%= title %></h1>
+                </div>
+            <%} 
+          %>
 
           
           
