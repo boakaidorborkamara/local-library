@@ -9,8 +9,12 @@ const asyncHandler = require('express-async-handler');
 
 
 // Display list of all Genre.
-exports.genre_list = function(req, res) {
-    res.render('genres', {title:"Local Library | Genres"});
+exports.genre_list = async function(req, res) {
+
+    const genres = await Genre.findAll();
+    console.log(genres);
+    res.render('genres', {title:"Local Library | Genres", genres});
+
 };
 
 // Display detail page for a specific Genre.
