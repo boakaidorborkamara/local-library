@@ -14,6 +14,7 @@
         <%- include("./partial/nav") -%>
     
         <main class="col-lg-10"> 
+
           <!-- Dynamicly display page title  -->
           <% if(typeof title !== "undefined"){%>
               <div>
@@ -21,6 +22,33 @@
               </div>
            <%
           } %>
+
+
+          <!-- Add list of author  -->
+          <% if(typeof authors !== "undefined"){%>
+
+              <ul>
+                <!-- loop through array of author and create an unorder list  -->
+                <%
+                  authors.forEach((author)=>{%>
+                      <li>
+                        <a href=<%= author.id %>>
+                          <%= author.firstName %> <%= author.firstName %>
+                        </a>
+
+                        <!-- Show date of birth and date of dead if exist  -->
+                        (<%= author.date_of_birth %> - <%= author.date_of_death %>)
+                      </li>
+                  <%})
+                %>
+              </ul>
+             
+
+            <%}
+            else{%>
+              <p>No Author</p>
+            <%}
+          %>
         
         </main>
       </div>

@@ -16,9 +16,9 @@ const asyncHandler = require('express-async-handler');
 
 // Display list of all author 
 exports.author_list = async function(req,res){
-    const author = await Author.findAll();
-    console.log(author);
-    res.render('authors', {title:"Local Library | Authors", author});
+    const authors = await Author.findAll();
+    console.log(authors);
+    res.render('authors', {title:"Local Library | Authors", authors});
 }
 
 // Display detail page for specific author 
