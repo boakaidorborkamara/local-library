@@ -5,8 +5,12 @@ const Book = require('../model/book');
 const BookInstance = require('../model/book_instance');
 
 // Display list of all BookInstances.
-exports.bookinstance_list = function(req, res) {
-    res.render('book-instance', {title:"Local Library | Book Instance"});
+exports.bookinstance_list = async function(req, res) {
+
+    const book_instances = await BookInstance.findAll();
+    console.log(book_instances);
+    res.render('book-instance', {title:"Local Library | Book Instance", book_instances});
+    
 };
 
 // Display detail page for a specific BookInstance.
