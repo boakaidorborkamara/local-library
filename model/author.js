@@ -17,10 +17,10 @@ const Author = sequelize.define("Author", {
         allowNull: false
     },
     date_of_birth: {
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY
     },
     date_of_death: {
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY
     },
 }, {
     tableName: 'author'
@@ -29,7 +29,7 @@ const Author = sequelize.define("Author", {
 
 //create author table from model
 (async() => {
-    await Author.sync({ force: false });
+    await Author.sync({ force: true });
     console.log("The table for the Author model was just (re)created!");
 })();
 
