@@ -33,11 +33,11 @@
                   authors.forEach((author)=>{%>
                       <li>
                         <a href=<%= author.id %>>
-                          <%= author.firstName %> <%= author.firstName %>
+                          <%= author.firstName %> <%= author.FamilyName %>
                         </a>
 
                         <!-- Show date of birth and date of dead if exist  -->
-                        (<%= author.date_of_birth %> - <%= author.date_of_death %>)
+                        (<strong>Birth Date:</strong> <%= author.date_of_birth %> - <strong>Death Date:</strong> <%= author.date_of_death %>)
                       </li>
                   <%})
                 %>
