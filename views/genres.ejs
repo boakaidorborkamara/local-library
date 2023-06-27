@@ -17,6 +17,32 @@
           <div>
             <h1>Genre List</h1>
           </div>
+
+          <!-- display existing genres to DOM  -->
+          <% 
+            <!-- check if genre exist  -->
+            if(typeof genres !== "undefined"){%>
+
+              <!-- create an unorder list of existing genres  -->
+              <ul>
+                <% genres.forEach((genre)=>{%>
+                
+                  <li>
+                    <a href=<%= genre.id %>><%= genre.name %></a>
+                  </li>
+
+                  <%})
+                %>
+              </ul>
+          
+            <%}
+            else{%> 
+
+              <a href=<%= genre.id %>>Add Genre</a> 
+
+            <%}
+          %>
+          
         </main>
       </div>
    </div>
