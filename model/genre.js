@@ -19,7 +19,7 @@ const Genre = sequelize.define("Genre", {
 
 //create author table from model
 (async() => {
-    await Genre.sync({ force: false });
+    await Genre.sync({ force: true });
     console.log("The table for the Genre model was just (re)created!");
 })();
 

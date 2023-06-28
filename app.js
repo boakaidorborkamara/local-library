@@ -6,9 +6,8 @@ const bodyParser = require("body-parser");
 
 
 //PORT
-const PORT = process.env.PORT || 3000;
-// initialize express application 
-let app = express();
+const PORT = process.env.PORT || 3000; 
+const app = express(); // initialize express application
 
 
 // GLOBAL MIDDLEWARES
@@ -19,27 +18,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-
 //database connection
 const database = require('./dbConfig/dbConfig');
-const author_table = require('./model/author');//author table
-const genre_table = require('./model/genre');//genre table
-const book_table = require('./model/book');//book table
-const book_instance = require('./model/book_instance');//book instance table
-
 
 
 // ROUTES 
 const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
 
 
@@ -48,7 +37,7 @@ app.use('/catalog', catalogRouter);
 // app.use('/users', usersRouter);
 
 
-
+// start server 
 app.listen(PORT, () => {
     console.log(`Server is listening on ${PORT}`);
 })

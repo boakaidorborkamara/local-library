@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../dbConfig/dbConfig');
+const Author = require('../model/author');
 
 
 const Book = sequelize.define("Book", {
@@ -28,10 +29,12 @@ const Book = sequelize.define("Book", {
     tableName: 'book'
 });
 
+ 
+
 
 //create author table from model
 (async() => {
-    await Book.sync({ force: false });
+    await Book.sync({ force: true });
     console.log("The table for the Book model was just (re)created!");
 })();
 
