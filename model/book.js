@@ -26,15 +26,21 @@ const Book = sequelize.define("Book", {
         type: DataTypes.STRING
     }
 }, {
-    tableName: 'book'
+    tableName: 'book',
+    timestamps:false
 });
 
- 
+
+// Declear a one to one relationship between Book and Author with foreign key store in the source 
+Book.belongsTo(Author,{
+    allowNull:false,
+    DataTypes:sequelize.UUIDV4
+});  
 
 
 //create author table from model
 (async() => {
-    await Book.sync({ force: true });
+    await Book.sync({ force: true});
     console.log("The table for the Book model was just (re)created!");
 })();
 
