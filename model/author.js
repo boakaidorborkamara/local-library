@@ -27,12 +27,11 @@ const Author = sequelize.define("Author", {
 });
 
 
-//create author table from model
+// //create author table from model
 (async() => {
-    await Author.sync({ force: true });
+    await Author.sync({ alter: true });
     console.log("The table for the Author model was just (re)created!");
 })();
-
 
 
 

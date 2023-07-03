@@ -105,7 +105,8 @@ exports.book_create_post = [
             title: req.body.title,
             summary: req.body.summary,
             isbn: req.body.isbn,
-            genre:req.body.genre.toString()
+            genre:req.body.genre.toString(),
+            AuthorId: "8129a4e9-41da-4d13-8bb0-dd8cdac1efab"
         }
         console.log("Book", book);
 

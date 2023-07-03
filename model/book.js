@@ -32,10 +32,10 @@ const Book = sequelize.define("Book", {
 
 
 // Declear a one to one relationship between Book and Author with foreign key store in the source 
-Book.belongsTo(Author,{
-    allowNull:false,
-    DataTypes:sequelize.UUIDV4
-});  
+// Book.belongsTo(Author,{
+//     allowNull:false,
+//     DataTypes:sequelize.UUID
+// });  
 
 
 //create author table from model
