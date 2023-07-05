@@ -14,7 +14,6 @@ const {body, validationResult} = require('express-validator');
 // Display catalog summary page 
 exports.catalog = async function (req,res){
 
-    res.render('index', {title:"Home"});
 
     // Calculate the number of book in the library 
     const books_amount = await Book.count();
@@ -30,8 +29,18 @@ exports.catalog = async function (req,res){
         available_copies_amount,
         author_amount,
         genre_amount
-        
+
     );
+
+    res.render('index', {
+        title:"Library Info",
+        books_amount,
+        book_instance_amount,
+        available_copies_amount,
+        author_amount,
+        genre_amount
+    });
+
 
 }
 
