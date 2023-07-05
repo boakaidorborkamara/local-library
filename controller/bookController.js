@@ -9,11 +9,18 @@ const Book = require('../model/book');
 const {body, validationResult} = require('express-validator');
 
 
+// Display catalog summary page 
+exports.catalog = async function (req,res){
+    res.render('index', {title:"Home"});
+}
+
+
 // Display list of all books.
 exports.book_list = async function(req, res) {
 
     const books = await Book.findAll();
     res.render('books', {title:"Local Library | Books", books});
+
 };
 
 // Display detail page for a specific book.
