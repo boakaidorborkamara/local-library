@@ -40,7 +40,7 @@ const Book = sequelize.define("Book", {
 
 //create author table from model
 (async() => {
-    await Book.sync({ force: true});
+    await Book.sync({ alter: true});
     console.log("The table for the Book model was just (re)created!");
 })();
 

@@ -18,7 +18,7 @@ exports.catalog = async function (req,res){
     // Calculate the number of book in the library 
     const books_amount = await Book.count();
     const book_instance_amount = await BookInstance.count();
-    const available_copies_amount = await BookInstance.count({where:{status:"available"}});
+    const available_copies_amount = await BookInstance.count({where:{status:"Available"}});
     const author_amount = await Author.count();
     const genre_amount = await Genre.count();
 
