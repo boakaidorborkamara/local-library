@@ -22,23 +22,21 @@ exports.catalog = async function (req,res){
     const author_amount = await Author.count();
     const genre_amount = await Genre.count();
 
-    console.log(
 
-        books_amount,
-        book_instance_amount,
-        available_copies_amount,
-        author_amount,
-        genre_amount
+    const library_counter = {
 
-    );
+        book_amount :books_amount,
+        book_instance_amount: book_instance_amount,
+        available_copies_amount:available_copies_amount,
+        author_amount:author_amount,
+        genre_amount:genre_amount
+
+    }
+    console.log(library_counter);
 
     res.render('index', {
         title:"Library Info",
-        books_amount,
-        book_instance_amount,
-        available_copies_amount,
-        author_amount,
-        genre_amount
+        library_counter
     });
 
 

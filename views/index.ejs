@@ -27,12 +27,21 @@
             <p>
               The library has the following record counts:
             </p>
+
+            <!-- Dynamicly create a list  -->
             <ul>
-              <li>Book:9</li>
-              <li>Copies: 12</li>
-              <li>Copies available: 5</li>
-              <li>Authors: 8</li>
-              <li>Genres: 8</li>
+
+              <%if(typeof library_counter !== "undefine"){%>
+              
+                <li>Book:<%= library_counter.book_amount %></li>
+                <li>Copies: <%= library_counter.book_instance_amount %></li>
+                <li>Copies available: <%= library_counter.available_copies_amount %></li>
+                <li>Authors: <%= library_counter.author_amount %></li>
+                <li>Genres: <%= library_counter.genre_amount %></li>
+
+                <%}
+              %>
+             
             </ul>
           </div>
 
