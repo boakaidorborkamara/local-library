@@ -1,9 +1,11 @@
 // database model 
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require('../dbConfig/dbConfig');
 const asyncHandler = require('express-async-handler');
 const Author = require('../model/author');
 const Genre = require('../model/genre');
 const Book = require('../model/book');
+const BookInstance = require('../model/book_instance');
 
 // express validator
 const {body, validationResult} = require('express-validator');
@@ -11,7 +13,15 @@ const {body, validationResult} = require('express-validator');
 
 // Display catalog summary page 
 exports.catalog = async function (req,res){
+
     res.render('index', {title:"Home"});
+
+    // Calculate the number of book in the library 
+    const books_amount = await Book.count();
+    const book_instance_amount = await BookInstance.count();
+
+    console.log(books_amount, book_instance_amount);
+
 }
 
 
