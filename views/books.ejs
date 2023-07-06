@@ -32,7 +32,7 @@
             <ul>
               <% books.forEach((book)=>{ %>
                 <li>
-                  <a href="<%= book.id %>"><%= book.title %></a>
+                  <a href="/catalog/book/<%= book.id %>"><%= book.title %></a>
                 </li>
               <% }); %>
             
