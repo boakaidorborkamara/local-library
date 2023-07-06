@@ -32,7 +32,7 @@ exports.catalog = async function (req,res){
         genre_amount:genre_amount
 
     }
-    console.log(library_counter);
+
 
     res.render('index', {
         title:"Library Info",
@@ -106,9 +106,7 @@ exports.book_create_post = [
         .trim()
         .isLength({min:2})
         .escape()
-        .withMessage("Title must be more than one character.")
-        .isAlpha('es-ES', {ignore: ' '})
-        .withMessage("Title name has non-alphanumeric characters."),
+        .withMessage("Title must be more than one character."),
     body("summary")
         .trim()
         .isLength({min:2})
