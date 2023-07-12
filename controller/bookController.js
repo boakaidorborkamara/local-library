@@ -56,7 +56,7 @@ exports.book_detail = async function(req, res) {
 
     let book_id = req.params.id;
    
-    const book_details = await Book.findOne({ where: { id: book_id } });
+    const book_details = await Book.findOne({ where: { id: book_id }, raw:true });
 
     if (book_details === null) {
         res.render('book-details', {msg:"book_details"});

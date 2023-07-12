@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <!-- bootstrap link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+   <div class="container-fluid">
+      <div class="row ">
+        <!-- nav -->
+        <%- include("./partial/nav") -%>
+    
+        <main class="col-lg-10">
+
+          <!-- Book Details  -->
+           <div>
+            <h1>Book Name</h1>
+            <p>
+              <strong>Author:</strong>
+            </p>
+            <p>
+              <strong>Genre:</strong>
+            </p>
+           </div>
+
+           <hr>
+
+           <!-- Delete & Update buttons  -->
+           <p>
+            <a href="">Delete Book</a>
+           </p>
+           <p>
+            <a href="">Update Book</a>
+           </p>
+
+           <!-- Copies  -->
+           <h2>Copies</h2>
+           <div>
+             <p>Avaliable</p>
+             <p>Imprints</p>
+             <p>Id</p>
+           </div>
+
+          
+        </main>
+      </div>
+   </div>
+  </body>
+</html>
