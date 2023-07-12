@@ -52,9 +52,20 @@ exports.book_list = async function(req, res) {
 };
 
 // Display detail page for a specific book.
-exports.book_detail = function(req, res) {
-    res.render('book-details');
-    // res.send('NOT IMPLEMENTED: Book detail: ' + req.params.id);
+exports.book_detail = async function(req, res) {
+
+    let book_id = req.params.id;
+   
+    const book_details = await Book.findOne({ where: { id: book_id } });
+
+    if (book_details === null) {
+        res.render('book-details', {msg:"book_details"});
+    } else {
+        console.log("book id", book_id);
+        console.log("BOOK DETAILS", book_details);
+        res.render('book-details', book_details);
+    }
+   
 };
 
 // Display book create form on GET.
@@ -111,9 +122,7 @@ exports.book_create_post = [
         .trim()
         .isLength({min:2})
         .escape()
-        .withMessage("Summary must be more than one character.")
-        .isAlpha('es-ES', {ignore: ' '})
-        .withMessage("Title name has non-alphanumeric characters."),
+        .withMessage("Summary must be more than one character."),
     body("isbn")
         .trim()
         .isLength({min:1})
@@ -142,10 +151,9 @@ exports.book_create_post = [
             genre:req.body.genre.toString(),
             AuthorId: "8129a4e9-41da-4d13-8bb0-dd8cdac1efab"
         }
-        console.log("Book", book);
+
 
         if(!results.isEmpty()){
-
 
 
             // Get  all authors from db to be added to dropdown in book form
