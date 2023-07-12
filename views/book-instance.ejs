@@ -30,7 +30,7 @@
               <ul>
                 <% book_instances.forEach((book_instance)=>{ %>
                   <li>
-                    <a href="<%= book_instance.id %>"><%= book_instance.title %></a>
+                    <a href="/catalog/bookinstance/<%= book_instance.id %>"><%= book_instance.title %></a>
                   </li>
                 <% }); %>
               

@@ -23,7 +23,7 @@ exports.author_list = async function(req,res){
 
 // Display detail page for specific author 
 exports.author_details = function(req,res){
-    res.send("author detail page not implemented.")
+    res.send("author detail page not implemented.");
 }
  
 // Display form to create new Author on GET.
