@@ -17,9 +17,15 @@
 
           <!-- Book Details  -->
            <div>
-            <h1>Book Name</h1>
+            <h1>Book Title:</h1>
             <p>
               <strong>Author:</strong>
+            </p>
+            <p>
+              <strong>Summary:</strong>
+            </p>
+            <p>
+              <strong>ISBN:</strong>
             </p>
             <p>
               <strong>Genre:</strong>
@@ -28,21 +34,41 @@
 
            <hr>
 
-           <!-- Delete & Update buttons  -->
-           <p>
-            <a href="">Delete Book</a>
-           </p>
-           <p>
-            <a href="">Update Book</a>
-           </p>
-
            <!-- Copies  -->
-           <h2>Copies</h2>
+           <h4><strong>Copies & Categories</strong></h4>
+
+           <!-- Avaliable copies  -->
            <div>
-             <p>Avaliable</p>
+             <p class="text-success"><strong>Avaliable Copies</strong></p>
              <p>Imprints</p>
              <p>Id</p>
            </div>
+
+           <hr>
+
+           <!-- Loaned copies  -->
+           <div>
+            <p class="text-warning"><strong>Loaned</strong></p>
+            <p>Imprints</p>
+            <p>Id</p>
+          </div>
+
+          <hr>
+
+          <!-- Loaned copies  -->
+          <div>
+            <p class="text-danger"><strong>Maintenance</strong></p>
+            <p>Imprints</p>
+            <p>Id</p>
+          </div>
+
+
+          <hr>
+
+           <!-- call to action buttons  -->
+           <button type="button" class="btn btn-primary">Update Book</button>
+           <button type="button" class="btn btn-danger">Delete Book</button>
+           
 
           
         </main>
