@@ -18,7 +18,7 @@ exports.genre_list = async function(req, res) {
 
 // Display detail page for a specific Genre.
 exports.genre_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Genre detail: ' + req.params.id);
+    res.render('genre-details');
 };
 
 // Display Genre create form on GET.
