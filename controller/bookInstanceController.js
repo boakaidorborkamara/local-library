@@ -15,7 +15,7 @@ exports.bookinstance_list = async function(req, res) {
 
 // Display detail page for a specific BookInstance.
 exports.bookinstance_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: BookInstance detail: ' + req.params.id);
+    res.render('book-instance-details')
 };
 
 // Display BookInstance create form on GET.
