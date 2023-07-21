@@ -104,7 +104,7 @@ exports.author_create_post = [
 
 // Display Author delete form on GET.
 exports.author_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author delete GET');
+    res.render('book-delete');
 };
 
 // Handle Author delete on POST.
