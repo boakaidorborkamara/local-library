@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../dbConfig/dbConfig');
+const Book = require('../model/book');
 
 
 const BookInstance = sequelize.define("BookInstance", {
@@ -28,6 +29,12 @@ const BookInstance = sequelize.define("BookInstance", {
     tableName: 'book_instance'
 });
 
+
+
+// Declear a one to many relationship between Book and BookInstance with foreign key store in BookInstance table 
+Book.hasMany(BookInstance); 
+BookInstance.belongsTo(Book); 
+ 
 
 //create author table from model
 (async() => {

@@ -1,7 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../dbConfig/dbConfig');
 const Author = require('../model/author');
-const Genre = require('./genre');
+const Genre = require('../model/genre');
+// const BookInstance = require('../model/book_instance');
+
 
 
 const Book = sequelize.define("Book", {
@@ -34,12 +36,17 @@ const Book = sequelize.define("Book", {
 
 // Declear a one to many relationship between Book and Author with foreign key store in Book table 
 Author.hasMany(Book);
-Book.belongsTo(Author); 
+Book.belongsTo(Author);  
 
 
 // Declear a one to many relationship between Book and Genre with foreign key store in Book table 
 Genre.hasMany(Book);
-Book.belongsTo(Genre);  
+Book.belongsTo(Genre);   
+
+
+// // Declear a one to many relationship between Book and BookInstance with foreign key store in BookInstance table 
+// Book.hasMany(BookInstance);
+// BookInstance.belongsTo(Book); 
 
 
 //create author table from model
