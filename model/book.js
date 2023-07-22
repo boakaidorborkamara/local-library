@@ -33,21 +33,20 @@ const Book = sequelize.define("Book", {
     timestamps:false
 });
 
-
+ 
 // Declear a one to many relationship between Book and Author with foreign key store in Book table 
 Author.hasMany(Book, {
-    type: UUID,
-    allowNull: false
+    type: UUID 
 });
 Book.belongsTo(Author);  
 
 
 // Declear a one to many relationship between Book and Genre with foreign key store in Book table 
-Genre.hasMany(Book, {
-    type:UUID,
-    allowNull: false
-});
-Book.belongsTo(Genre);   
+// Genre.hasMany(Book, {
+//     type:UUID,
+//     allowNull: true
+// });
+// Book.belongsTo(Genre);   
 
 
 //create author table from model
