@@ -35,9 +35,7 @@ const Book = sequelize.define("Book", {
 
  
 // Declear a one to many relationship between Book and Author with foreign key store in Book table 
-Author.hasMany(Book, {
-    type: UUID 
-});
+Author.hasMany(Book);
 Book.belongsTo(Author);  
 
 

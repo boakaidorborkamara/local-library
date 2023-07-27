@@ -201,13 +201,22 @@ exports.book_create_post = [
         }
         else{
 
-            // Add a new book
-            console.log('ADDING NEW BOOK')
-            // const new_book = await Book.create(book);
-            Book.setAuthor("8129a4e9-41da-4d13-8bb0-dd8cdac1efab")
-            console.log("new book", new_book);
-            res.render("add-book", {title: "Add Book"});
+            try{
 
+                // Add a new book
+                console.log('ADDING NEW BOOK')
+                const new_book = await Book.create(book);
+                console.log("new book", new_book);
+                res.render("add-book", {title: "Add Book"});
+
+            }
+            catch(error){
+                
+                console.log("Error occured.")
+                console.error(error);
+                
+            }
+            
         }
         
     })
