@@ -35,4 +35,4 @@ const Author = sequelize.define("Author", {
 
 
 
-module.exports = Author;
+module.exports = Author; 

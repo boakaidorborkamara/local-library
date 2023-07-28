@@ -148,8 +148,7 @@ exports.book_create_post = [
             title: req.body.title,
             summary: req.body.summary,
             isbn: req.body.isbn,
-            genre:req.body.genre.toString(),
-            AuthorId: "8129a4e9-41da-4d13-8bb0-dd8cdac1efab"
+            genre:req.body.genre.toString()
         }
 
         console.log("NEW BOOK", book);
@@ -204,16 +203,20 @@ exports.book_create_post = [
             try{
 
                 // Add a new book
-                console.log('ADDING NEW BOOK')
+                console.log('ADDING NEW BOOK');
+                const author = await Author.findOne({ where: { id: "6b42ff68-112c-40a7-a4ff-049c1f42cb90" } });
+                console.log("AUTHOR", author);
                 const new_book = await Book.create(book);
-                console.log("new book", new_book);
+                // console.log("new book", new_book);
+                new_book.setAuthor(author);
                 res.render("add-book", {title: "Add Book"});
 
             }
-            catch(error){
+            catch(error){ 
                 
                 console.log("Error occured.")
                 console.error(error);
+                res.send(error);  
                 
             }
             
