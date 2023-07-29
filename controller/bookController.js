@@ -151,7 +151,9 @@ exports.book_create_post = [
             genre:req.body.genre.toString()
         }
 
-        
+        console.log(book);
+
+
         if(!results.isEmpty()){
 
 
@@ -209,6 +211,18 @@ exports.book_create_post = [
 
                 // Insert data into foreign key colum
                 new_book.setAuthor(author);
+
+
+                //INSERT GENRE FOREIGN KEY
+                const genre = await Genre.findAll({where: {id: req.body.genre}});
+                console.log('GENRE', genre);
+
+                // Insert data into genre foreign key colum
+                let genres = req.body.genre;
+                let stringify_genres = genres.toString();
+                console.log('STRINGIFY GENRES', genres);
+                new_book.setGenre(stringify_genres);
+
 
                 // Send response 
                 res.render("add-book", {title: "Add Book"});

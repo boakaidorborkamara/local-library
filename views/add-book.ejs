@@ -94,7 +94,7 @@
                   <!-- dynamicly create dropdown options from existing genre  -->
                   <% genre_list.forEach(function(genre){ %>
 
-                    <input type="checkbox" id=<%= genre.name %> name="genre" value=<%= genre.name %>>
+                    <input type="checkbox" id=<%= genre.name %> name="genre" value=<%= genre.id %>>
                     <label for=<%= genre.name %> class="mr-3"> <%= genre.name %> </label>
 
                   <% }); %>
