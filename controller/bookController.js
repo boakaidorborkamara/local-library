@@ -202,21 +202,23 @@ exports.book_create_post = [
 
             try{
 
-                // Add a new book
-                console.log('ADDING NEW BOOK');
-                const author = await Author.findOne({ where: { id: "6b42ff68-112c-40a7-a4ff-049c1f42cb90" } });
-                console.log("AUTHOR", author);
+                // Get author associated with new book
+                const author = await Author.findOne({ where: { id: req.body.author } });
+
+                // Add book to database 
                 const new_book = await Book.create(book);
-                // console.log("new book", new_book);
+
+                // Insert data into foreign key colum
                 new_book.setAuthor(author);
+
+                // Send response 
                 res.render("add-book", {title: "Add Book"});
 
             }
             catch(error){ 
                 
                 console.log("Error occured.")
-                console.error(error);
-                res.send(error);  
+                console.error(error);  
                 
             }
             
