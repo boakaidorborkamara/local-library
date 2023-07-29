@@ -44,11 +44,11 @@ Book.belongsTo(Author);
 
 
 // Declear a one to many relationship between Book and Genre with foreign key store in Book table 
-// Genre.hasMany(Book, {
-//     type:UUID,
-//     allowNull: true
-// });
-// Book.belongsTo(Genre);   
+Genre.hasMany(Book, {
+    type:UUID,
+    allowNull: true
+});
+Book.belongsTo(Genre);   
 
 
 //create author table from model

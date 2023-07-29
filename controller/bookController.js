@@ -151,8 +151,7 @@ exports.book_create_post = [
             genre:req.body.genre.toString()
         }
 
-        console.log("NEW BOOK", book);
-
+        
         if(!results.isEmpty()){
 
 
