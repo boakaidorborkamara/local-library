@@ -24,9 +24,6 @@ const Book = sequelize.define("Book", {
     isbn: {
         type: DataTypes.STRING,
         require: true
-    },
-    genre:{
-        type: DataTypes.STRING
     }
 }, {
     tableName: 'book',
